@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TestMagtek</string>
+    <string name="connected">Connected</string>
+    <string name="title_connecting">Connecting...</string>
+    <string name="connecting">Connecting</string>
+    <string name="disconnecting">Disconnecting</string>
+    <string name="disconnected">Disconnected</string>
 </resources>
