@@ -5,4 +5,6 @@
     <string name="connecting">Connecting</string>
     <string name="disconnecting">Disconnecting</string>
     <string name="disconnected">Disconnected</string>
+    <string name="unknown_device">Unknown device</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
 </resources>

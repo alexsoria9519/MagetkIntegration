@@ -18,7 +18,7 @@ import com.magtek.mobile.android.mtlib.MTSCRA;
 public class MagtekActivity extends AppCompatActivity {
 
 
-    private final static String TAG = Magtek.class.getSimpleName();
+//    private final static String TAG = Magtek.class.getSimpleName();
 
     public static final String AUDIO_CONFIG_FILE = "MTSCRAAudioConfig.cfg";
 
@@ -90,6 +90,9 @@ public class MagtekActivity extends AppCompatActivity {
 //    private boolean[] mTypeChecked = new boolean[] {false, true, false};
 //
 //    private Handler m_scraHandler = new Handler(new SCRAHandlerCallback());
+
+
+
 
     protected void OnDeviceStateChanged(MTConnectionState deviceState)
     {
