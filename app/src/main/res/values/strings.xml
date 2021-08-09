@@ -7,4 +7,16 @@
     <string name="disconnected">Disconnected</string>
     <string name="unknown_device">Unknown device</string>
     <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+    <string name="value_cancel">Cancel</string>
+    <string name="title_list_main"> Magtek Integration </string>
+    <string name="title_btn_usb"> Usb Connection </string>
+    <string name="title_btn_blue"> Bluetooth Connection </string>
+    <string name="title_ble_emv_devices">BLE EMV Devices</string>
+    <string name="label_device_address">Device Address:</string>
+    <string name="label_state">Connection State:</string>
+
+
+    <string name="title_btn_ble"> BLE Connection </string>
+    <string name="title_btn_ble_emv"> BLE EMV Connection </string>
+    <string name="title_btn_ble_emvt"> BLE EMVT Connection </string>
 </resources>

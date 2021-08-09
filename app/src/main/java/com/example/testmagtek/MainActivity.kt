@@ -1,35 +1,65 @@
 package com.example.testmagtek
 
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.magtek.mobile.android.mtlib.MTConnectionType
 import com.magtek.mobile.android.mtlib.MTSCRA
 
 class MainActivity : AppCompatActivity() {
 
-    val CONFIGWS_URL = "https://deviceconfig.magensa.net/service.asmx" //Production URL
-    private val CONFIGWS_USERNAME = "MAG905840514"
-    private val CONFIGWS_PASSWORD = "UCP!h@Db#oviw7"
-    private val CONFIGWS_READERTYPE = 0
-    private val CONFIGWS_TIMEOUT = 10000
+    private lateinit var usb: Button
+    private lateinit var bluetooth: Button
+    private lateinit var ble: Button
+    private lateinit var bleEmv: Button
+    private lateinit var bleEmvt: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sdk = MTSCRA(this, Handler())
+        usb = findViewById(R.id.call_usb_con)
+        bluetooth = findViewById(R.id.call_bluetooth_con)
+        ble = findViewById(R.id.tes_ble)
+        bleEmv = findViewById(R.id.tes_ble_emv)
+        bleEmvt = findViewById(R.id.tes_ble_emvt)
 
+        usb.setOnClickListener {
+            val intent = Intent(this, UsbScanActivity::class.java)
+            startActivity(intent)
+        }
+
+        bluetooth.setOnClickListener {
+            val intent = Intent(this, ScanActivity::class.java)
+            intent.putExtra(ScanActivity.EXTRAS_CONNECTION_TYPE,"BLUETOOTH")
+            startActivity(intent)
+        }
+
+        ble.setOnClickListener {
+            val intent = Intent(this, ScanActivity::class.java)
+            intent.putExtra(ScanActivity.EXTRAS_CONNECTION_TYPE,"BLE")
+            startActivity(intent)
+        }
+
+        bleEmv.setOnClickListener {
+            val intent = Intent(this, ScanActivity::class.java)
+            intent.putExtra(ScanActivity.EXTRAS_CONNECTION_TYPE,"EMV")
+            startActivity(intent)
+        }
+
+        bleEmvt.setOnClickListener {
+            val intent = Intent(this, ScanActivity::class.java)
+            intent.putExtra(ScanActivity.EXTRAS_CONNECTION_TYPE,"EMVT")
+            startActivity(intent)
+        }
     }
 
-    fun connectionDevice(sdk: MTSCRA){
+
+    fun connectionDevice(sdk: MTSCRA) {
         sdk.setConnectionType(MTConnectionType.USB)
 //        sdk.setConnectionRetry(true) // this option is for Bluetooth Connection and recomended true flag
         sdk.setAddress("127.0.0.1")
-
-        // ToDO implementation of services USB/Bluetooh
-
-
     }
 
 
