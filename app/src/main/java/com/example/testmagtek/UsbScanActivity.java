@@ -61,6 +61,8 @@ public class UsbScanActivity extends ListActivity {
     }
 
 
+
+
     private void selectUsbDevice() {
         ArrayList<String> selectionList = getUsbDeviceSelections();
 

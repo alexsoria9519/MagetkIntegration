@@ -26,7 +26,10 @@ class MainActivity : AppCompatActivity() {
         bleEmvt = findViewById(R.id.tes_ble_emvt)
 
         usb.setOnClickListener {
-            val intent = Intent(this, UsbScanActivity::class.java)
+//            val intent = Intent(this, UsbScanActivity::class.java)
+//            startActivity(intent)
+            val intent = Intent(this, ScanActivity::class.java)
+            intent.putExtra(ScanActivity.EXTRAS_CONNECTION_TYPE,"USB")
             startActivity(intent)
         }
 

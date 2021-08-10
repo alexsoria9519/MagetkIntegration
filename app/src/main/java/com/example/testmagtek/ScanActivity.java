@@ -35,6 +35,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.testmagtek.Makteg.Magtek;
 import com.magtek.mobile.android.mtlib.MTDeviceConstants;
 
 import java.nio.ByteBuffer;
@@ -68,6 +69,8 @@ public class ScanActivity extends ListActivity {
 
     public static final String EXTRAS_CONNECTION_TYPE = "CONNECTION_TYPE";
     public static String EXTRAS_CONNECTION_VALUE = "BLUETOOTH";
+
+    Magtek magtek = new Magtek(this);
 
 //    private Button button_ble;
 //    private Button button_ble_emv;
@@ -106,6 +109,9 @@ public class ScanActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_scan);
+
+
+//        magtek.make();
 //
 
         Intent intent = getIntent();
@@ -135,9 +141,9 @@ public class ScanActivity extends ListActivity {
 //            getActionBar().setTitle(R.string.app_name);
 //        }
 
-        mHandler = new Handler();
-
-        mScanning = false;
+//        mHandler = new Handler();
+//
+//        mScanning = false;
 
         // Register for broadcasts when a device is discovered
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
@@ -156,10 +162,13 @@ public class ScanActivity extends ListActivity {
         if (mBluetoothAdapter == null) {
             Log.d("mBluetoothAdapter", "Bluetooth does not support");
             Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
+
         } else {
             Log.e("mBluetoothAdapter", "Bluetooth is supporting");
 //            scanBluetoothDevice(true);
         }
+
+
 
 
     }
@@ -170,22 +179,22 @@ public class ScanActivity extends ListActivity {
 
 //        selectBLEEMV();
         Log.e("EXTRAS_CONNECTION_VALUE", EXTRAS_CONNECTION_VALUE);
-        selectedOption(EXTRAS_CONNECTION_VALUE);
+//        selectedOption(EXTRAS_CONNECTION_VALUE);
     }
 
     private void selectedOption(String dataOption) {
         switch (dataOption) {
             case "BLE":
-                selectBLE();
+                magtek.selectBLE();
                 break;
             case "EMV":
-                selectBLEEMV();
+                magtek.selectBLEEMV();
                 break;
             case "EMVT":
-                selectBLEEMVT();
+                magtek.selectBLEEMVT();
                 break;
             case "BLUETOOTH":
-                selectBluetooth();
+                magtek.selectBluetooth();
                 break;
         }
     }
